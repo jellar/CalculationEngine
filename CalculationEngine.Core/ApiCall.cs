@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 
 namespace CalculationEngine.Core
 {
@@ -8,10 +9,17 @@ namespace CalculationEngine.Core
 
         public static string GetExpressionResult(string expression)
         {
-            var url = $"{baseUrl}?expr={expression}";
-            using var client = new WebClient();
-            var response = client.DownloadString(url);
-            return !string.IsNullOrEmpty(response) ? response : string.Empty;
+            try
+            {
+                var url = $"{baseUrl}?expr={expression}";
+                using var client = new WebClient();
+                var response = client.DownloadString(url);
+                return !string.IsNullOrEmpty(response) ? response : string.Empty;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
