@@ -2,19 +2,24 @@
 {
     public static class Calculation
     {
-        public static int Addition(int a, int b)
+        public static decimal Addition(decimal a, decimal b)
         {
             return a + b;
         }
 
-        public static int Subtraction(int a, int b)
+        public static decimal Subtraction(decimal a, decimal b)
         {
             return a - b;
         }
 
-        public static int Multiplication(int a, int b)
+        public static decimal Multiplication(decimal a, decimal b)
         {
             return a * b;
+        }
+
+        public static decimal Division(decimal a, decimal b)
+        {
+            return a / b;
         }
     }
 }

@@ -30,5 +30,14 @@ namespace CalculationEngine.Core.Tests
             var actual = Calculation.Multiplication(a, b);
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData(100, 10, 10)]
+        [InlineData(50, 2, 25)]
+        public void DivisionTests(int a, int b, int expected)
+        {
+            var actual = Calculation.Division(a, b);
+            Assert.Equal(expected, actual);
+        }
     }
 }
