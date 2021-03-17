@@ -6,5 +6,9 @@ namespace CalculationEngine.Core
 {
     public static class Calculation
     {
+        public static int Add(int a, int b)
+        {
+            return a + b;
+        }
     }
 }

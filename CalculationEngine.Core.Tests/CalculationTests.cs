@@ -6,6 +6,7 @@ namespace CalculationEngine.Core.Tests
     {
         [Theory]
         [InlineData(10, 20, 30)]
+        [InlineData(100,50,150)]
         public void AdditionTest(int a, int b, int expected)
         {
             var result = Calculation.Add(a, b);
