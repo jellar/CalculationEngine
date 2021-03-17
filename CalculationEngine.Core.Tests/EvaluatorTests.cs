@@ -12,9 +12,10 @@ namespace CalculationEngine.Core.Tests
         [InlineData("(10-20)+30", 20)]
         [InlineData("2*3+4", 10)]
         [InlineData("(2*6)/3", 4)]
-        public void AdditionSubtractionTests(string expression, int expected)
+        [InlineData("4^4", 256)]
+        public void ExpressionTests(string expression, int expected)
         {
-            Evaluator eval = new Evaluator();
+            var eval = new Evaluator();
             var actual = eval.Evaluate(expression);
             Assert.Equal(expected, actual);
         }

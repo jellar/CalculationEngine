@@ -13,8 +13,19 @@ namespace CalculationEngine.Core
         {
             _expression = input;
             _expressionPosition = 0;
-           
-            StartCalculations('\0');
+            try
+            {
+                StartCalculations('\0');
+            }
+            catch
+            {
+                var apiResponse = ApiCall.GetExpressionResult(input);
+                if (!string.IsNullOrEmpty(apiResponse))
+                {
+                    _fac = Convert.ToDecimal(apiResponse);
+                }
+            }
+
             return _fac;
         }
 
@@ -58,6 +69,10 @@ namespace CalculationEngine.Core
                     opr = GetValueAndNextOperator(opr);
                     _fac = Calculation.Division(curFac, _fac);
                         return opr;
+                }
+                case '^':
+                {
+                   throw new NotImplementedException();
                 }
                 default:
                     return GetValueAndNextOperator(opr);

@@ -1,0 +1,22 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Home page";
+    
+}
+
+
+<form method="post">
+    <div class="form-group">
+        <label for="inputExpression">Expression</label>
+        <input type="text" class="form-control" id="inputExpression" aria-describedby="expressionHelp"
+               asp-for="Expression" placeholder="Enter your expression here.">
+        <small id="expressionHelp" class="form-text text-muted">ex. 2+10*3</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<br/>
+<h3>@Model.Result</h3>
+
